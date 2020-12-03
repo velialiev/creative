@@ -1,0 +1,22 @@
+//region Configurable variables
+$containerWidth: 900px;
+$maxCardsOnRow: 3;
+$indent: 15px;
+//endregion
+
+// 2 sides + (n - 1) indents between cards
+$numberOfIndents: 2 + ($maxCardsOnRow - 1);
+// calculate card width taking into account the space reserved by indents
+$cardWidth: ($containerWidth - $numberOfIndents * $indent) / $maxCardsOnRow;
+
+.container {
+  padding: $indent;
+  max-width: $containerWidth;
+  margin: 0 auto;
+}
+
+.cardsWrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, $cardWidth);
+  grid-gap: $indent;
+}
